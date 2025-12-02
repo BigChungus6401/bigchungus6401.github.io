@@ -1,102 +1,88 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>DingleBerry</title>
-		<link rel="icon" type="image/x-icon" href="icon.ico"></link>
+		<title>Purdue Study Spaces</title>
+		<link rel="icon" type="image/x-icon" href="purduelogo.ico"></link>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		
-		<!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-			crossorigin=""/>-->
-		
 		<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.css"
 			integrity="sha256-cxGB1ADWWosJ2EL1W3C8TcEQELFbhUnixlpp0jP73S4="
-			crossorigin=""
-		/>
+			crossorigin=""/>
 		
 		<style>
 			html, body {
 				margin: 0;
 				padding: 0;
 				height: 100%;
-			}
-			body {
-				background-color: #CFBA92;
-				font-family: Arial;
-			}
-			
-			.sidebar {
-				padding: 15px;
-				background: #EDEDED;
-				width: 7.5vw;
-				height: 100vh;
-				text-align: center;
-			}
-			
-			@media screen and (max-width: 769px) {
-				.sidebar {
-					padding: 10px;
-					width: 15vw;
-				}
+				background-color: #CFB991;
+				font-family: Roboto;
 			}
 			
 			#map {
 				position: absolute;
-				top: 60px;
+				top: 66px;
 				bottom: 0;
 				width: 100%;
 			}
 			
 			#top {
 				width: 100%;
-				height: 60px;
-				background: #222;
+				height: 64px;
+				border-top: 2px solid #CFB991;
+				background-color: #000;
 				color: white;
 				display: flex;
-				align-items: center;
-				padding-left: 15px;
+				padding-left: 24px;
+				padding-right: 24px;
 				font-size: 20px;
 				position: fixed;
+				align-items: center;
+				flex-flow: row nowrap;
+				flex: 1 1 auto;
 				top: 0;
 				left: 0;
 				z-index: 9999;
+				box-shadow: -5px 2.5px 2.5px #00000077;
 			}
 			
 			.custom-marker {
-				width: 12px;
-				height: 12px;
+				width: 11px;
+				height: 11px;
 				background-color: white;
-				border: 6px solid #FF3333;
+				border: 7px solid #757575;
 				border-radius: 50%;
-				box-shadow: 0 0 4px #000000FF;
+				box-shadow: 0 0 8px #000000BB;
 			}
-			.image-marker {
-				background-image: url('beastboy2.png');
-				width: 32px;
-				height: 32px;
-				background-size: cover;
+			
+			.purdue-logo {
+				background: url(https://www.purdue.edu/purdue/images/PU-H.svg) no-repeat;
+				background-size: contain;
+				display: block;
+				height: 35%;
+				width: 100%;
+				max-width: 125px;
+				margin: auto 15px auto 0;
+				overflow: hidden;
+				text-indent: -9999px;
 			}
 		</style>
 	</head>
 	<body>
-		<div id="top"><i>Buo-ttohn</i></div>
+		<div id="top">
+			<span class="purdue-logo">PU Logo</span>
+			<p>Study Spaces</p>
+		</div>
 		
 		<div id="map"></div>
-		
-		<!-- Include Leaflet Javascript -->
-		<!--<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-			crossorigin="anonymous"></script>-->
 		
 		<!-- Include MapLibre GL Javascript -->
 		<script src="https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.js"
 			integrity="sha256-HEgGTc9sxgksv4r2DvQT16zDV/OBUDoXVwGZjXPRnk0="
-			crossorigin=""></script>
+			crossorigin="">
+		</script>
 		
+		<script src="places.js"></script>
 		<script src="map.js"></script>
-		
-		
 	</body>
 </html>
-
