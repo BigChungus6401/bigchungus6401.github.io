@@ -1,90 +1,49 @@
-const styleJSON = {
-	"version": 8,
-	"sources": {
-		"openmaptiles": {
-			"type": "vector",
-			//"url": "https://api.maptiler.com/tiles/v3/tiles.json?key=O25HJX84zRELhSSf1dc4"
-			"url": "https://api.maptiler.com/maps/streets-v2/style.json?key=O25HJX84zRELhSSf1dc4"
-		}
-	},
-	"glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=O25HJX84zRELhSSf1dc4",
-	"layers": [
-		{
-			"id": "background",
-			"type": "background",
-			"paint": { "background-color": "#e4e4e4" }
-		},
-		{
-			"id": "place-labels",
-			"type": "symbol",
-			"source": "openmaptiles",
-			"source-layer": "place",
-			"layout": {
-				"text-field": "{name}",
-				"text-font": ["Open Sans Regular"],
-				"text-size": 18,
-				"text-anchor": "center"
-			},
-				"paint": {
-				"text-color": "#111",
-				"text-halo-color": "white",
-				"text-halo-width": 2
-			}
-		},
-		{
-			"id": "roads",
-			"type": "line",
-			"source": "openmaptiles",
-			"source-layer": "transportation",
-			"paint": {
-				"line-color": "#666",
-				"line-width": 1.5
-			}
-		}
-	]
-};
-
 // MapLibre
 const map = new maplibregl.Map({
 	container: "map",
 	style: "https://api.maptiler.com/maps/streets-v2/style.json?key=O25HJX84zRELhSSf1dc4",
-	center: [-86.915430, 40.427627],
-	zoom: 16
+	center: [-86.91406, 40.42725],
+	zoom: 15.75
 });
 
-// Default Marker
-new maplibregl.Marker().setLngLat([-86.913220, 40.427412]).addTo(map);
-
-// Custom HTML + CSS Marker
-const el = document.createElement("div");
-el.className = "custom-marker";
-
-new maplibregl.Marker({element: el}).setLngLat([-86.914945, 40.427900]).addTo(map);
-
-// Custom Image Marker
-const eL = document.createElement("div");
-eL.className = "image-marker";
-
-new maplibregl.Marker({element: eL}).setLngLat([-86.911654, 40.427608]).addTo(map);
-
-
-
-
-
-
-/*var map = L.map('map').setView([40.427627, -86.915430], 16);
-
-/*L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-	{
-		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributers',
-		maxZoom: 19
+map.on("load", () => {
+	// Custom HTML + CSS Markers
+	for (var i=0; i<PLACES.length; i++) {
+		let occupancy = Math.random();
+		
+		// Marker Element
+		let m = document.createElement("div");
+		m.className = "custom-marker";
+		if      (occupancy < 0.51) m.style.borderColor = "#2D9B2B";
+		else if (occupancy < 0.66) m.style.borderColor = "#FFD700";
+		else if (occupancy < 0.81) m.style.borderColor = "#FFA500";
+		else if (occupancy < 0.96) m.style.borderColor = "#D40000";
+		
+		// Adding and decorating marker
+		new maplibregl.Marker({element: m}).setLngLat([PLACES[i][2], PLACES[i][1]]).addTo(map)
+			.setPopup(new maplibregl.Popup({offset: 25}).setHTML(
+				`<div style="font-size: 12.5px; line-height: 1.15;">
+					<strong style="font-size: 20px;">${PLACES[i][0]}</strong>
+					<hr>
+					<em style="font-size: 12px; margin-bottom: 20px;">${PLACES[i][4]}</em><br><br>
+					<strong>Occupancy: </strong>${Math.floor(occupancy*PLACES[i][3])}/${PLACES[i][3]}<br>
+					<strong>Sound-Level: </strong>${noiseScale[Math.floor(Math.random()*4)]}<br>
+					<strong>Light-Level: </strong>${lightScale[Math.floor(Math.random()*4)]}
+				</div>`
+			)
+		);
 	}
-).addTo(map);*/
-
-
-/*L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=386a14e0-4be2-4246-824f-cc5cad94f5dd', {
-	attribution: 'Map tiles by Stamen Design — Data © OpenStreetMap contributors'
-}).addTo(map);
-
-
-L.marker([40.427412, -86.913220]).addTo(map).bindPopup("WALC<br>Whilley Meth AckTive Learndening Scenter");*/
+	
+	// Geolocation
+	const geoLoc = new maplibregl.GeolocateControl({
+		positionOptions: {
+			enableHighAccuracy: true
+		},
+		trackUserLocation: false,
+		showAccuracyCircle: true
+	});
+	
+	map.addControl(geoLoc);
+	
+	geoLoc.on("trackuserlocationstart", () => {geoLoc.trigger()});
+});
