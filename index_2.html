@@ -6,14 +6,20 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		<!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-			crossorigin=""/>
+			crossorigin=""/>-->
+		
+		<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.css"
+			integrity="sha256-cxGB1ADWWosJ2EL1W3C8TcEQELFbhUnixlpp0jP73S4="
+			crossorigin=""
+		/>
 		
 		<style>
-			body {
+			html, body {
 				margin: 0;
 				padding: 0;
+				height: 100%;
 			}
 			body {
 				background-image: url("pattern8.png");
@@ -38,17 +44,40 @@
 			}
 			
 			#map {
-				height: 90vh;
+				position: absolute;
+				top: 60px;
+				bottom: 0;
 				width: 100%;
 			}
 			
 			#top {
-				height: 10vh;
 				width: 100%;
-				text-align: center;
-				background: white;
-				//padding-top: 10px;
-				font-size: 20pt;
+				height: 60px;
+				background: #222;
+				color: white;
+				display: flex;
+				align-items: center;
+				padding-left: 15px;
+				font-size: 20px;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 9999;
+			}
+			
+			.custom-marker {
+				width: 12px;
+				height: 12px;
+				background-color: white;
+				border: 6px solid #FF3333;
+				border-radius: 50%;
+				box-shadow: 0 0 4px #000000FF;
+			}
+			.image-marker {
+				background-image: url('beastboy2.png');
+				width: 32px;
+				height: 32px;
+				background-size: cover;
 			}
 		</style>
 	</head>
@@ -58,13 +87,17 @@
 		<div id="map"></div>
 		
 		<!-- Include Leaflet Javascript -->
-		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		<!--<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
 			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-			crossorigin="anonymous"></script>
+			crossorigin="anonymous"></script>-->
+		
+		<!-- Include MapLibre GL Javascript -->
+		<script src="https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.js"
+			integrity="sha256-HEgGTc9sxgksv4r2DvQT16zDV/OBUDoXVwGZjXPRnk0="
+			crossorigin=""></script>
 		
 		<script src="map.js"></script>
 		
 		
 	</body>
 </html>
-
