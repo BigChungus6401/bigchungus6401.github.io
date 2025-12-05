@@ -1,16 +1,4 @@
 window.onload = function() {
-	navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
-	
-	function foundLocation(position) {
-		var lat = position.coords.latitude;
-		var long = position.coords.longitude;
-		alert('Found location: ' + lat + ', ' + long);
-	}
-	function noLocation() {
-		alert('Could not find location');
-	}
-	
-	
 	// MapLibre
 	const map = new maplibregl.Map({
 		container: "map",
@@ -51,26 +39,16 @@ window.onload = function() {
 		}
 		
 		// Geolocation
-		const geoLoc = new maplibregl.GeolocateControl({
-			positionOptions: {
-				enableHighAccuracy: true
-			},
-			trackUserLocation: false,
-			showAccuracyCircle: true
-		});
-		
-		const button = geoLoc.onAdd(map);//.getElementsByClassName("maplibregl-ctrl-geolocate");
-		console.log(button);
-		
-		let Location = document.getElementsByClassName("maplibregl-ctrl-top-right")[0];
-		
-		// iOS geolocation fix
-		button.addEventListener('click', () => {
-			geoLoc.trigger();
-		});
-		
-		Location.appendChild(button);
-		
-		//map.addControl(geoLoc);
+		if ("geolocation" in navigator) {
+			const geoLoc = new maplibregl.GeolocateControl({
+				positionOptions: {
+					enableHighAccuracy: true
+				},
+				trackUserLocation: false,
+				showAccuracyCircle: true
+			});
+			
+			map.addControl(geoLoc);
+		} else alert("Geolocation Unavailable");
 	});
 }
