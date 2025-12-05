@@ -1,4 +1,16 @@
 window.onload = function() {
+	navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
+	
+	function foundLocation(position) {
+		var lat = position.coords.latitude;
+		var long = position.coords.longitude;
+		alert('Found location: ' + lat + ', ' + long);
+	}
+	function noLocation() {
+		alert('Could not find location');
+	}
+	
+	
 	// MapLibre
 	const map = new maplibregl.Map({
 		container: "map",
