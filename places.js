@@ -1,8 +1,16 @@
+const occupancyScale = [
+	"Vacant",
+	"Sparse",
+	"Moderate",
+	"Occupied",
+	"Crowded"
+];
+
 const noiseScale = [
-	"Quiet (~40 dB)",
-	"Medium-Quiet (~50 dB)",
-	"Medium-Loud (~60 dB)",
-	"Loud (~70 dB)"
+	"Quiet",
+	"Muffled",
+	"Noisy",
+	"Loud"
 ];
 
 const lightScale = [
