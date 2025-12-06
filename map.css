@@ -100,21 +100,22 @@ html, body {
 	transition-property: bottom, transform;
 }
 
-.menuBtnT {
-	.btnBar {
-		background: none;
-	}
-	.btnBar::before, .btnBar::after {
-		transition-delay: 0s, 0.1s;
-	}
-	.btnBar::before {
-		top: 0;
-		transform: rotate(45deg);
-	}
-	.btnBar::after {
-		bottom: 0;
-		transform: rotate(-45deg);
-	}
+.menuBtnT .btnBar {
+	background: none;
+}
+
+.menuBtnT .btnBar::before, .menuBtnT .btnBar::after {
+	transition-delay: 0s, 0.1s;
+}
+
+.menuBtnT .btnBar::before {
+	top: 0;
+	transform: rotate(45deg);
+}
+
+.menuBtnT .btnBar::after {
+	bottom: 0;
+	transform: rotate(-45deg);
 }
 
 .topMenu {
