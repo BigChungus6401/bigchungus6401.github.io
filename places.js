@@ -14,8 +14,7 @@ const noiseScale = [
 ];
 
 const lightScale = [
-	"Dark",
-	"Moody",
+	"Low-Light",
 	"Well-Lit",
 	"Bright"
 ];
@@ -62,3 +61,5 @@ const PLACES = [
 	["WANG", 40.430458, -86.912556,  100, "Wang (Seng-Liang) Hall"],
 	["WTHR", 40.426457, -86.913099,  120, "Wetherill (Richard Benbridge) Laboratory of Chemistry"],
 ];
+
+var placeData = [];
