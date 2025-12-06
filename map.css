@@ -6,7 +6,7 @@ html, body {
 	font-family: Arial;
 }
 
-a, .maplibregl-ctrl-geolocate {
+button, a, .maplibregl-ctrl-geolocate {
 	touch-action: manipulation;
 }
 
@@ -208,4 +208,5 @@ button svg {
 	float: right;
 	fill: currentcolor;
 }
+
 
