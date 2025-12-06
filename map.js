@@ -29,19 +29,21 @@ window.onload = function() {
 			else if (occupancy < 0.81) m.style.borderColor = "#FFA500";
 			else if (occupancy < 0.96) m.style.borderColor = "#D40000";
 			
+			// Create Popup
+			let Popup = new maplibregl.Popup({offset: 15});
+			Popup.setHTML(`<div style="font-size: 12.5px; line-height: 1.15;">
+				<strong style="font-size: 20px; color: #CFB991;">${PLACES[i][0]}</strong>
+				<hr style="border: 0; background-color: #CFB991; height: 2px;">
+				<em style="font-size: 12px; margin-bottom: 20px;">${PLACES[i][4]}</em><br><br>
+				<strong>Occupancy: </strong>${Math.floor(occupancy*PLACES[i][3])}/${PLACES[i][3]}<br>
+				<strong>Sound-Level: </strong>${noiseScale[Math.floor(Math.random()*4)]}<br>
+				<strong>Light-Level: </strong>${lightScale[Math.floor(Math.random()*4)]}
+			</div>`);
+			
 			// Adding and decorating marker
-			new maplibregl.Marker({element: m}).setLngLat([PLACES[i][2], PLACES[i][1]]).addTo(map)
-				.setPopup(new maplibregl.Popup({offset: 25}).setHTML(
-					`<div style="font-size: 12.5px; line-height: 1.15;">
-						<strong style="font-size: 20px; color: #CFB991;">${PLACES[i][0]}</strong>
-						<hr style="border: 0; background-color: #CFB991; height: 2px;">
-						<em style="font-size: 12px; margin-bottom: 20px;">${PLACES[i][4]}</em><br><br>
-						<strong>Occupancy: </strong>${Math.floor(occupancy*PLACES[i][3])}/${PLACES[i][3]}<br>
-						<strong>Sound-Level: </strong>${noiseScale[Math.floor(Math.random()*4)]}<br>
-						<strong>Light-Level: </strong>${lightScale[Math.floor(Math.random()*4)]}
-					</div>`
-				)
-			);
+			new maplibregl.Marker({element: m})
+				.setLngLat([PLACES[i][2], PLACES[i][1]])
+				.addTo(map).setPopup(Popup);
 		}
 		
 		// Geolocation
