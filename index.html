@@ -12,33 +12,72 @@
 	</head>
 	<body>
 		<div id="top">
-			<button class="menuBtn" onclick="toggleTopMenu()">
-				<span class="btnBar"></span>
-			</button>
+			<abbr title="Menu & Preferences" style="text-decoration: none;">
+				<button class="menuBtn menuBtnT" onclick="toggleLeftMenu()">
+					<span class="btnBar"></span>
+				</button>
+			</abbr>
 			
 			<span class="purdue-logo">PU Logo</span>
 			
 			<p>Study Spaces</p>
 		</div>
 		
-		<div id="topMenu" class="topMenu">
-			<button onclick="alert('FATAL ERROR OCCURED: Nu uh')">Login</button>
-			<a href="https://www.ravbug.com/bsod/bsod10/">Explode</a>
-			<button href="#">
-				Preferences
-				<svg focusable="false" viewBox="0 0 24 24" data-testid="ExpandLessIcon">
-					<path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"></path><!--m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path>-->
-				</svg>
+		<div id="leftMenu" class="leftMenu">
+			<button onclick="alert('FATAL ERROR OCCURED: Nu uh')">
+				<svg focusable="false" viewBox="0 -8 72 72" data-testid="ExpandLessIcon"><path d="M 54.39 22.46 H 51.62 V 15.62 a 15.62 15.62 0 0 0 -31.24 0 v 6.84 H 17.61 A 1.61 1.61 0 0 0 16 24.07 V 54.38 A 1.61 1.61 0 0 0 17.61 56 H 54.39 A 1.61 1.61 0 0 0 56 54.38 V 24.07 A 1.61 1.61 0 0 0 54.39 22.46 Z M 38.52 40.9 v 6.46 a 1 1 0 0 1 -1 1 h -3 a 1 1 0 0 1 -1 -1 V 40.9 a 4.36 4.36 0 1 1 5 0 Z m 5.64 -18.44 H 27.84 V 15.62 a 8.16 8.16 0 1 1 16.32 0 v 6.84 Z"></path></svg>
+				Login
 			</button>
 			
-			<div class="topMenuFooter">
+			<a href="https://www.ravbug.com/bsod/bsod10/"><button>
+				<svg focusable="false" viewBox="0 0 14 14" data-testid="ExpandLessIcon"><path d="m 11.3242 3.07539 l -1.21875 1.21875 l 0.621093 0.6211 c 0.220313 0.22031 0.220313 0.57656 0 0.79453 L 10.3188 6.11758 C 10.5953 6.7293 10.75 7.40899 10.75 8.12383 c 0 2.69297 -2.18203 4.875 -4.875 4.875 C 3.18203 12.9988 1 10.8191 1 8.12617 c 0 -2.69296 2.18203 -4.875 4.875 -4.875 c 0.714844 0 1.39453 0.15469 2.00625 0.43125 L 8.28906 3.27461 C 8.50937 3.0543 8.86563 3.0543 9.08359 3.27461 L 9.70469 3.8957 L 10.9234 2.67695 L 11.3242 3.07539 Z m 1.39453 -0.66797 l -0.5625 0 c -0.154688 0 -0.28125 0.12657 -0.28125 0.28125 c 0 0.15469 0.126562 0.28125 0.28125 0.28125 l 0.5625 0 C 12.8734 2.96992 13 2.84336 13 2.68867 C 13 2.53399 12.8734 2.40742 12.7188 2.40742 Z M 11.3125 1.00117 c -0.154688 0 -0.28125 0.12657 -0.28125 0.28125 l 0 0.5625 c 0 0.15469 0.126562 0.28125 0.28125 0.28125 c 0.154688 0 0.28125 -0.12656 0.28125 -0.28125 l 0 -0.5625 c 0 -0.15468 -0.126562 -0.28125 -0.28125 -0.28125 Z m 0.794531 1.28907 l 0.398438 -0.39844 c 0.110156 -0.11016 0.110156 -0.28828 0 -0.39844 c -0.110157 -0.11016 -0.288281 -0.11016 -0.398438 0 L 11.7086 1.8918 c -0.110157 0.11015 -0.110157 0.28828 0 0.39844 c 0.1125 0.11015 0.290625 0.11015 0.398437 0 Z m -1.58906 0 c 0.110156 0.11015 0.288281 0.11015 0.398437 0 c 0.110156 -0.11016 0.110156 -0.28829 0 -0.39844 L 10.518 1.49336 c -0.110156 -0.11016 -0.288281 -0.11016 -0.398438 0 c -0.110156 0.11016 -0.110156 0.28828 0 0.39844 l 0.398438 0.39844 Z m 1.58906 0.79687 c -0.110156 -0.11016 -0.288281 -0.11016 -0.398437 0 c -0.110157 0.11016 -0.110157 0.28828 0 0.39844 l 0.398437 0.39844 c 0.110157 0.11015 0.288281 0.11015 0.398438 0 c 0.110156 -0.11016 0.110156 -0.28829 0 -0.39844 L 12.107 3.08711 Z M 3.625 7.37617 c 0 -0.82734 0.672656 -1.5 1.5 -1.5 c 0.20625 0 0.375 -0.16875 0.375 -0.375 c 0 -0.20625 -0.16875 -0.375 -0.375 -0.375 c -1.23984 0 -2.25 1.01016 -2.25 2.25 c 0 0.20625 0.16875 0.375 0.375 0.375 c 0.20625 0 0.375 -0.16875 0.375 -0.375 Z"></path></svg>
+				Explode
+			</button></a>
+			
+			<div>
+				<button onclick="togglePreferncesMenu()">
+					<svg focusable="false" viewBox="0 0 477.088 477.088" data-testid="ExpandLessIcon"><g><path d="M202.685,111.416c18.908-11.438,28.885-33.287,25.135-55.067l-4.03-23.403c-3.27-19.024-19.762-32.922-39.065-32.922   c-5.792,0-10.489,4.698-10.489,10.49v48.273c0,8.766-7.105,15.871-15.872,15.871h-36.51c-8.767,0-15.87-7.105-15.87-15.871V10.513   c0-5.792-4.697-10.49-10.491-10.49c-19.296,0-35.796,13.899-39.064,32.922l-4.031,23.403c-3.75,21.78,6.227,43.63,25.135,55.067   l20.624,12.478v229.323l-20.624,12.478c-18.908,11.438-28.885,33.288-25.135,55.068l4.031,23.403   c3.268,19.024,19.76,32.922,39.064,32.922c5.793,0,10.491-4.698,10.491-10.491v-48.273c0-8.767,7.104-15.872,15.87-15.872h36.51   c8.767,0,15.872,7.105,15.872,15.872v48.273c0,5.793,4.697,10.491,10.489,10.491c19.304,0,35.796-13.898,39.065-32.922l4.03-23.403   c3.75-21.78-6.227-43.629-25.135-55.068l-20.624-12.478V123.894L202.685,111.416z"/><path d="M409.568,233.702 h-29.598 V0 h-56.984 v233.702h-29.598c-8.781,0-15.902,7.121-15.902,15.902c0,8.783,7.121,15.902,15.902,15.902h3.517v175.15c0,20.118,16.314,36.432,36.432,36.432h39.795c20.118,0,36.432-16.314,36.432-36.432v-175.15 c8.781,0,15.902-7.119,15.902-15.902C425.471,240.823,418.35,233.702,409.568,233.702z"/></g></svg>
+					Preferences
+					<svg focusable="false" viewBox="0 0 24 24" data-testid="ExpandLessIcon" style="width: 21px; height: 21px; margin-left: auto; padding: 0; fill: currentcolor;">
+						<path id="prefsIcon" d="m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path>
+					</svg>
+				</button>
+				<div class="prefsBox">
+					<div class="prefsInd">
+						<strong>Occupancy:</strong>
+						<div id="occupInd" style="text-align: center;">Sparse</div>
+					</div>
+					<input id="occupSld" type="range" min="0" max="4" step="1" value="1">
+					
+					<div class="prefsInd">
+						<strong>Loudness:</strong>
+						<div id="noiseInd" style="text-align: center;">Muffled</div>
+					</div>
+					<input id="noiseSld" type="range" min="0" max="3" step="1" value="1">
+					
+					<div class="prefsInd">
+						<strong>Brightness:</strong>
+						<div id="lightInd" style="text-align: center;">Well-Lit</div>
+					</div>
+					<input id="lightSld" type="range" min="0" max="3" step="1" value="2">
+					
+					<div class="prefsButts">
+						<button id="prefsApply" onclick="applyPrefs()">Apply</button>
+						<button id="prefsReset" onclick="resetPrefs()">Reset</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="leftMenuFooter">
 				<h3 class="credTitle">Created by Team CRBY</h3>
-				<ul class="credList">
-					<li>Carter Koutsouros</li>
-					<li>Revanth Surabhi</li>
-					<li>Bence Nagy</li>
-					<li>Yug Gharia</li>
-				</ul>
+				<div style="width:64%; margin-inline:auto;">
+					<ul class="credList">
+						<li>Carter Koutsouros</li>
+						<li>Revanth Surabhi</li>
+						<li>Bence Nagy</li>
+						<li>Yug Gharia</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		
