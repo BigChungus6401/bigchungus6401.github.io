@@ -6,6 +6,10 @@ html, body {
 	font-family: Arial;
 }
 
+a, .maplibregl-ctrl-geolocate {
+	touch-action: manipulation;
+}
+
 #map {
 	position: absolute;
 	top: 66px;
@@ -204,3 +208,4 @@ button svg {
 	float: right;
 	fill: currentcolor;
 }
+
