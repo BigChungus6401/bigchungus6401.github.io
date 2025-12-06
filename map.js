@@ -1,9 +1,28 @@
-var topMenuToggle = false;
+var leftMenuToggle = true;
+var preferencesMenuToggle = true;
+var S1, I1, S2, I2, S3, I3;
 
 window.onload = function() {
 	// Menu Button
 	const B = document.getElementsByClassName("menuBtn")[0];
 	B.addEventListener("click", () => {B.classList.toggle("menuBtnT");});
+	
+	// Preferences Input/Output
+		// Occupancy
+	I1 = document.getElementById("occupInd");
+	S1 = document.getElementById("occupSld");
+	S1.addEventListener("input", () => {I1.innerText = occupancyScale[S1.value];});
+	
+		// Noise
+	I2 = document.getElementById("noiseInd");
+	S2 = document.getElementById("noiseSld");
+	S2.addEventListener("input", () => {I2.innerText = noiseScale[S2.value];});
+	
+		// Light
+	I3 = document.getElementById("lightInd");
+	S3 = document.getElementById("lightSld");
+	S3.addEventListener("input", () => {I3.innerText = lightScale[S3.value];});
+	
 	
 	// MapLibre
 	const map = new maplibregl.Map({
@@ -61,12 +80,44 @@ window.onload = function() {
 	});
 }
 
-function toggleTopMenu() {
-	if (!topMenuToggle) {
-		document.getElementById("topMenu").style.width = "250px";
-		topMenuToggle = true;
+function toggleLeftMenu() {
+	if (!leftMenuToggle) {
+		document.getElementById("leftMenu").style.width = "250px";
+		document.getElementById("map").style.left = "250px";
+		document.getElementById("map").style.width = "calc(100% - 250px)";
+		leftMenuToggle = true;
 	} else {
-		document.getElementById("topMenu").style.width = "0";
-		topMenuToggle = false;
+		document.getElementById("leftMenu").style.width = "0";
+		document.getElementById("map").style.left = "0";
+		document.getElementById("map").style.width = "100%";
+		if (preferencesMenuToggle) togglePreferncesMenu();
+		leftMenuToggle = false;
 	}
+}
+
+function togglePreferncesMenu() {
+	if (!preferencesMenuToggle) {
+		document.getElementsByClassName("prefsBox")[0].style.height = "230px";
+		document.getElementsByClassName("prefsBox")[0].style.borderColor = "#CFB991";
+		document.getElementById("prefsIcon").setAttribute("d", "m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z");
+		preferencesMenuToggle = true;
+	} else {
+		document.getElementsByClassName("prefsBox")[0].style.height = "0";
+		document.getElementsByClassName("prefsBox")[0].style.borderColor = "#555960";
+		document.getElementById("prefsIcon").setAttribute("d", "M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z");
+		preferencesMenuToggle = false;
+	}
+}
+
+function applyPrefs() {
+	console.log("Preferences Applied");
+}
+
+function resetPrefs() {
+	S1.value = 1;
+	I1.innerText = occupancyScale[1];
+	S2.value = 1;
+	I2.innerText = noiseScale[1];
+	S3.value = 2;
+	I3.innerText = lightScale[2];
 }
