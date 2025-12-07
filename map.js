@@ -28,8 +28,6 @@ window.onload = function() {
 	const map = new maplibregl.Map({
 		container: "map",
 		style: "https://api.maptiler.com/maps/streets-v2/style.json?key=O25HJX84zRELhSSf1dc4",
-		//style: "https://api.maptiler.com/maps/basic-v2/style.json?key=O25HJX84zRELhSSf1dc4",
-		//style: "https://api.maptiler.com/maps/dataviz/style.json?key=O25HJX84zRELhSSf1dc4",
 		center: [-86.91406, 40.42725],
 		zoom: 15.75
 	});
