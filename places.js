@@ -1,22 +1,22 @@
 const occupancyScale = [
-	"Vacant",
-	"Sparse",
-	"Moderate",
-	"Occupied",
-	"Crowded"
+	["Vacant", "#2D9B2B", "#2D3D2D"],
+	["Sparse", "#FFD700", "#4C4626"],
+	["Moderate", "#FFA500", "#4C3F26"],
+	["Occupied", "#D40000", "#462626"],
+	["Crowded", "#757575", "#383838"]
 ];
 
 const noiseScale = [
-	"Quiet",
-	"Muffled",
-	"Noisy",
-	"Loud"
+	["Quiet", "#1B367B", "#2A2E39"],
+	["Muffled", "#2548A5", "#2C313F"],
+	["Noisy", "#2E5BD0", "#2D3445"],
+	["Loud", "#376EFA", "#2E374C"]
 ];
 
 const lightScale = [
-	"Low-Light",
-	"Well-Lit",
-	"Bright"
+	["Low⎯light", "#4D1574", "#322938"],
+	["Well⎯lit", "#8524C9", "#3A2C44"],
+	["Bright", "#B03FFF", "#41304C"]
 ];
 
 const PLACES = [
