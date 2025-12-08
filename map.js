@@ -1,6 +1,7 @@
 var leftMenuToggle = false;
 var preferencesMenuToggle = false;
 var favoritesMenuToggle = false;
+var studyMenuToggle = false;
 var showFavs = false;
 var S1, I1, S2, I2, S3, I3;
 var favorites;
@@ -165,6 +166,7 @@ function togglePreferncesMenu() {
 		document.getElementById("prefsIcon").setAttribute("d", "m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z");
 		preferencesMenuToggle = true;
 		if (favoritesMenuToggle) toggleFavoritesMenu();
+		if (studyMenuToggle) toggleStudyMenu();
 	} else {
 		document.getElementById("prefsBox").style.height = "0";
 		document.getElementById("prefsBox").style.borderColor = "#555960";
@@ -180,11 +182,28 @@ function toggleFavoritesMenu() {
 		document.getElementById("favesIcon").setAttribute("d", "m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z");
 		favoritesMenuToggle = true;
 		if (preferencesMenuToggle) togglePreferncesMenu();
+		if (studyMenuToggle) toggleStudyMenu();
 	} else {
 		document.getElementById("favesBox").style.height = "0";
 		document.getElementById("favesBox").style.borderColor = "#555960";
 		document.getElementById("favesIcon").setAttribute("d", "M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z");
 		favoritesMenuToggle = false;
+	}
+}
+
+function toggleStudyMenu() {
+	if (!studyMenuToggle) {
+		document.getElementById("studyBox").style.height = "500px";
+		document.getElementById("studyBox").style.borderColor = "#CFB991";
+		document.getElementById("studyIcon").setAttribute("d", "m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z");
+		studyMenuToggle = true;
+		if (favoritesMenuToggle) toggleFavoritesMenu();
+		if (preferencesMenuToggle) togglePreferncesMenu();
+	} else {
+		document.getElementById("studyBox").style.height = "0";
+		document.getElementById("studyBox").style.borderColor = "#555960";
+		document.getElementById("studyIcon").setAttribute("d", "M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z");
+		studyMenuToggle = false;
 	}
 }
 
