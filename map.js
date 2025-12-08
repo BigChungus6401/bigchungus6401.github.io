@@ -5,12 +5,6 @@ var showFavs = false;
 var S1, I1, S2, I2, S3, I3;
 var favorites;
 
-/* TODO: 
-* 2.) Add Favorites tab in the side menu
-*      - Favorited places list
-* 4.) Map settings? (style changer)
-*/
-
 window.onload = function() {
 	// Menu Button
 	const B = document.getElementsByClassName("menuBtn")[0];
@@ -50,11 +44,6 @@ window.onload = function() {
 	// MapLibre
 	const map = new maplibregl.Map({
 		container: "map",
-		//style: "https://api.maptiler.com/maps/streets-v2/style.json?key=O25HJX84zRELhSSf1dc4",
-		//style: "https://api.maptiler.com/maps/basic-v2/style.json?key=O25HJX84zRELhSSf1dc4",
-		//style: "https://api.maptiler.com/maps/dataviz/style.json?key=O25HJX84zRELhSSf1dc4",
-		//style: "https://tiles.stadiamaps.com/styles/alidade_smooth_dark.json?api_key=386a14e0-4be2-4246-824f-cc5cad94f5dd",
-		//style: "https://tiles.stadiamaps.com/styles/osm_bright.json?api_key=386a14e0-4be2-4246-824f-cc5cad94f5dd",
 		style: "https://api.maptiler.com/maps/topo-v4/style.json?key=O25HJX84zRELhSSf1dc4",
 		center: [-86.91406, 40.42725],
 		zoom: 15.75,
