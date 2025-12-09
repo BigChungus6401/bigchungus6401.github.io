@@ -52,7 +52,7 @@
 					
 					<div class="prefsInd">
 						<strong>Brightness:</strong>
-						<div id="lightInd" style="text-align: center;">Well⎯lit</div>
+						<div id="lightInd" style="text-align: center;">Well-lit</div>
 					</div>
 					<input id="lightSld" type="range" min="0" max="2" step="1" value="1" style="--thumb-background: #8524C9; --slider-trail: -112.5px 0 0 100px #8524C999;">
 					
@@ -75,7 +75,7 @@
 					<button id="showFaves" onclick="showFavorites()">Show/Hide Favorites</button>
 				</div>
 			</div>
-
+			
 			<div>
 				<button onclick="toggleStudyMenu()">
 					<svg focusable="false" viewBox="0 0 512 512" data-testid="ExpandLessIcon"><g xmlns="http://www.w3.org/2000/svg"><path class="st0" d="M505.837,180.418L279.265,76.124c-7.349-3.385-15.177-5.093-23.265-5.093c-8.088,0-15.914,1.708-23.265,5.093   L6.163,180.418C2.418,182.149,0,185.922,0,190.045s2.418,7.896,6.163,9.627l226.572,104.294c7.349,3.385,15.177,5.101,23.265,5.101   c8.088,0,15.916-1.716,23.267-5.101l178.812-82.306v82.881c-7.096,0.8-12.63,6.84-12.63,14.138c0,6.359,4.208,11.864,10.206,13.618   l-12.092,79.791h55.676l-12.09-79.791c5.996-1.754,10.204-7.259,10.204-13.618c0-7.298-5.534-13.338-12.63-14.138v-95.148   l21.116-9.721c3.744-1.731,6.163-5.504,6.163-9.627S509.582,182.149,505.837,180.418z"/><path class="st0" d="M256,346.831c-11.246,0-22.143-2.391-32.386-7.104L112.793,288.71v101.638   c0,22.314,67.426,50.621,143.207,50.621c75.782,0,143.209-28.308,143.209-50.621V288.71l-110.827,51.017   C278.145,344.44,267.25,346.831,256,346.831z"/></g></svg>
@@ -85,7 +85,103 @@
 					</svg>
 				</button>
 				<div class="optionsContainer" id="studyBox">
-					
+					<div>
+						<div style="padding:7px 5px;background-color:#000;font-size:10.5pt;color:#CFB991;border-radius:5px;border:2px solid #CFB991;margin:5px 2.5px;text-align:left;white-space:wrap;">
+							<strong style="margin-bottom:5px;display:block;">Calc 3 Study Group</strong>
+							<div style="display:flex;flex-direction:row;justify-content:space-between;color:#FFF;">
+								<div class="infoBox" style="border-color:#2E5BD0;background:#2D3445;width:15%;padding:2.5px;margin-right:5px;">
+									<div style="font-size:10pt;font-weight:bold;">7</div>
+									People
+								</div>
+								<div class="infoBox" style="border-color:#DA1C1C;background-color: #472A2A;width:78%;display:flex;align-items:center;padding:2.5px;">
+									<div style="margin-right: 5px;font-size:10pt;margin-bottom:5px;margin-left:2.5px;font-weight:bold;line-height:15px;">WALC</div>
+									2nd Floor Tables</div></div>
+						</div>
+						
+						<div style="padding:7px 5px;background-color:#000;font-size:10.5pt;color:#CFB991;border-radius:5px;border:2px solid #CFB991;margin:5px 2.5px;text-align:left;white-space:wrap;">
+							<strong style="margin-bottom:5px;display:block;">Calculus 1 Homework Review</strong>
+							<div style="display:flex;flex-direction:row;justify-content:space-between;color:#FFF;">
+								<div class="infoBox" style="border-color:#2E5BD0;background:#2D3445;width:15%;padding:2.5px;margin-right:5px;">
+									<div style="font-size:10pt;font-weight:bold;">4</div>
+									People
+								</div>
+								<div class="infoBox" style="border-color:#DA1C1C;background-color: #472A2A;width:78%;display:flex;align-items:center;padding:2.5px;">
+									<div style="margin-right: 5px;font-size:10pt;margin-bottom:5px;margin-left:2.5px;font-weight:bold;line-height:15px;">HIKS</div>
+									Hicks Quiet Room</div></div>
+						</div>
+
+						<div style="padding:7px 5px;background-color:#000;font-size:10.5pt;color:#CFB991;border-radius:5px;border:2px solid #CFB991;margin:5px 2.5px;text-align:left;white-space:wrap;">
+							<strong style="margin-bottom:5px;display:block;">Organic Chemistry Problem Set</strong>
+							<div style="display:flex;flex-direction:row;justify-content:space-between;color:#FFF;">
+								<div class="infoBox" style="border-color:#2E5BD0;background:#2D3445;width:15%;padding:2.5px;margin-right:5px;">
+									<div style="font-size:10pt;font-weight:bold;">3</div>
+									People
+								</div>
+								<div class="infoBox" style="border-color:#DA1C1C;background-color: #472A2A;width:78%;display:flex;align-items:center;padding:2.5px;">
+									<div style="margin-right: 5px;font-size:10pt;margin-bottom:5px;margin-left:2.5px;font-weight:bold;line-height:15px;">STEW</div>
+									Basement</div></div>
+						</div>
+
+						<div style="padding:7px 5px;background-color:#000;font-size:10.5pt;color:#CFB991;border-radius:5px;border:2px solid #CFB991;margin:5px 2.5px;text-align:left;white-space:wrap;">
+							<strong style="margin-bottom:5px;display:block;">CS 18 Exam Prep</strong>
+							<div style="display:flex;flex-direction:row;justify-content:space-between;color:#FFF;">
+								<div class="infoBox" style="border-color:#2E5BD0;background:#2D3445;width:15%;padding:2.5px;margin-right:5px;">
+									<div style="font-size:10pt;font-weight:bold;">5</div>
+									People
+								</div>
+								<div class="infoBox" style="border-color:#DA1C1C;background-color: #472A2A;width:78%;display:flex;align-items:center;padding:2.5px;">
+									<div style="margin-right: 5px;font-size:10pt;margin-bottom:5px;margin-left:2.5px;font-weight:bold;line-height:15px;">BCC</div>
+									Black Cultural Center Lounge</div></div>
+						</div>
+
+						<div style="padding:7px 5px;background-color:#000;font-size:10.5pt;color:#CFB991;border-radius:5px;border:2px solid #CFB991;margin:5px 2.5px;text-align:left;white-space:wrap;">
+							<strong style="margin-bottom:5px;display:block;">PHYS 172 Notes Review</strong>
+							<div style="display:flex;flex-direction:row;justify-content:space-between;color:#FFF;">
+								<div class="infoBox" style="border-color:#2E5BD0;background:#2D3445;width:15%;padding:2.5px;margin-right:5px;">
+									<div style="font-size:10pt;font-weight:bold;">2</div>
+									People
+								</div>
+								<div class="infoBox" style="border-color:#DA1C1C;background-color: #472A2A;width:78%;display:flex;align-items:center;padding:2.5px;">
+									<div style="margin-right: 5px;font-size:10pt;margin-bottom:5px;margin-left:2.5px;font-weight:bold;line-height:15px;">PMU</div>
+									Starbucks Seating</div></div>
+						</div>
+
+						<div style="padding:7px 5px;background-color:#000;font-size:10.5pt;color:#CFB991;border-radius:5px;border:2px solid #CFB991;margin:5px 2.5px;text-align:left;white-space:wrap;">
+							<strong style="margin-bottom:5px;display:block;">ENGL 234 Reading Session</strong>
+							<div style="display:flex;flex-direction:row;justify-content:space-between;color:#FFF;">
+								<div class="infoBox" style="border-color:#2E5BD0;background:#2D3445;width:15%;padding:2.5px;margin-right:5px;">
+									<div style="font-size:10pt;font-weight:bold;">1</div>
+									Person
+								</div>
+								<div class="infoBox" style="border-color:#DA1C1C;background-color: #472A2A;width:78%;display:flex;align-items:center;padding:2.5px;">
+									<div style="margin-right: 5px;font-size:10pt;margin-bottom:5px;margin-left:2.5px;font-weight:bold;line-height:15px;">LILY</div>
+									Lilly Library Quiet Zone</div></div>
+						</div>
+
+						<div style="padding:7px 5px;background-color:#000;font-size:10.5pt;color:#CFB991;border-radius:5px;border:2px solid #CFB991;margin:5px 2.5px;text-align:left;white-space:wrap;">
+							<strong style="margin-bottom:5px;display:block;">CS 251 Group Work</strong>
+							<div style="display:flex;flex-direction:row;justify-content:space-between;color:#FFF;">
+								<div class="infoBox" style="border-color:#2E5BD0;background:#2D3445;width:15%;padding:2.5px;margin-right:5px;">
+									<div style="font-size:10pt;font-weight:bold;">6</div>
+									People
+								</div>
+								<div class="infoBox" style="border-color:#DA1C1C;background-color: #472A2A;width:78%;display:flex;align-items:center;padding:2.5px;">
+									<div style="margin-right: 5px;font-size:10pt;margin-bottom:5px;margin-left:2.5px;font-weight:bold;line-height:15px;">WALC</div>
+									Collaboration Rooms</div></div>
+						</div>
+
+						<div style="padding:7px 5px;background-color:#000;font-size:10.5pt;color:#CFB991;border-radius:5px;border:2px solid #CFB991;margin:5px 2.5px;text-align:left;white-space:wrap;">
+							<strong style="margin-bottom:5px;display:block;">ENGR 132 Project Discussion</strong>
+							<div style="display:flex;flex-direction:row;justify-content:space-between;color:#FFF;">
+								<div class="infoBox" style="border-color:#2E5BD0;background:#2D3445;width:15%;padding:2.5px;margin-right:5px;">
+									<div style="font-size:10pt;font-weight:bold;">3</div>
+									People
+								</div>
+								<div class="infoBox" style="border-color:#DA1C1C;background-color: #472A2A;width:78%;display:flex;align-items:center;padding:2.5px;">
+									<div style="margin-right: 5px;font-size:10pt;margin-bottom:5px;margin-left:2.5px;font-weight:bold;line-height:15px;">ME</div>
+									Mechanical Engineering Building Atrium</div></div>
+						</div>
+					</div>
 				</div>
 			</div>
 			
@@ -119,5 +215,3 @@
 		<script src="map.js"></script>
 	</body>
 </html>
-
-
