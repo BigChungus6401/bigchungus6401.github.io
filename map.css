@@ -291,7 +291,7 @@ html, body {
 
 #studyBox {
 	height: 0;
-	border-color: #555960;
+	border-bottom: 1px solid #555960;
 }
 
 .optionsContainer input[type="range"] {
@@ -421,4 +421,5 @@ html, body {
 	background-color: #D31C1C;
 	text-shadow: -1px 0.5px 1px #00000000;
 }
+
 
