@@ -45,6 +45,11 @@ window.onload = function() {
 	// MapLibre
 	const map = new maplibregl.Map({
 		container: "map",
+		//style: "https://api.maptiler.com/maps/streets-v2/style.json?key=O25HJX84zRELhSSf1dc4",
+		//style: "https://api.maptiler.com/maps/basic-v2/style.json?key=O25HJX84zRELhSSf1dc4",
+		//style: "https://api.maptiler.com/maps/dataviz/style.json?key=O25HJX84zRELhSSf1dc4",
+		//style: "https://tiles.stadiamaps.com/styles/alidade_smooth_dark.json?api_key=386a14e0-4be2-4246-824f-cc5cad94f5dd",
+		//style: "https://tiles.stadiamaps.com/styles/osm_bright.json?api_key=386a14e0-4be2-4246-824f-cc5cad94f5dd",
 		style: "https://api.maptiler.com/maps/topo-v4/style.json?key=O25HJX84zRELhSSf1dc4",
 		center: [-86.91406, 40.42725],
 		zoom: 15.75,
@@ -54,8 +59,7 @@ window.onload = function() {
 	});
 	
 	map.on("load", () => {
-		
-		// Custom HTML + CSS Markers
+		// Custom Markers
 		for (var i=0; i<PLACES.length; i++) {
 			// Occupancy "data"
 			let occupancy = Math.random(), O;
@@ -155,6 +159,7 @@ function toggleLeftMenu() {
 		}
 		if (preferencesMenuToggle) togglePreferncesMenu();
 		if (favoritesMenuToggle) toggleFavoritesMenu();
+		if (studyMenuToggle) toggleStudyMenu();
 		leftMenuToggle = false;
 	}
 }
@@ -193,7 +198,7 @@ function toggleFavoritesMenu() {
 
 function toggleStudyMenu() {
 	if (!studyMenuToggle) {
-		document.getElementById("studyBox").style.height = "500px";
+		document.getElementById("studyBox").style.height = "637px";
 		document.getElementById("studyBox").style.borderColor = "#CFB991";
 		document.getElementById("studyIcon").setAttribute("d", "m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z");
 		studyMenuToggle = true;
