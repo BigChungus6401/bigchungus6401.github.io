@@ -1,0 +1,308 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #D6D6E8;
+	color: #FFF;
+	font-family: "Rubik", sans-serif;
+	font-weight: normal; // 300 to 900
+	font-style: normal;
+	font-size: 11pt;
+}
+
+main {
+	margin: 10px 10px 0 10px;
+	padding: 23px;
+	background: #2E2545;
+	border-top-left-radius: 35px;
+	border-top-right-radius: 35px;
+}
+
+header {
+	display: flex;
+	align-items: flex-start;
+}
+
+header h2 {
+	display: inline-block;
+	margin: 0 0 35px 0;
+}
+
+header button {
+	background: #FD7B38;
+	color: #FFF;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border: 0;
+	border-radius: 50%;
+	padding: 5px;
+}
+header button div {
+	position: relative;
+	top: -2px;
+}
+
+.weekdays {
+	margin: 0 0 10px 0;
+	padding: 0;
+	display: grid;
+	justify-items: center;
+	grid-template-columns: repeat(7, 1fr);
+}
+
+.weekdays li {
+	list-style-type: none;
+	display: grid;
+	width: 35px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.days {
+	margin: 0;
+	padding: 0;
+	display: grid;
+	row-gap: 5px;
+	grid-template-columns: repeat(7, 1fr);
+	justify-items: center;
+	text-align: center;
+}
+
+.days li {
+	list-style-type: none;
+	display: grid;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	font-size: 12px;
+	align-content: center;
+	gap: 3px;
+}
+
+.days .other {
+	opacity: 0.4;
+}
+
+.days .active {
+	font-weight: bold;
+	border-radius: 50%;
+	background: #FD7B38;
+}
+
+.num {
+	position: relative;
+	top: 9px;
+}
+
+.dotHolder {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	gap: 1.5px;
+	height: 5px;
+	bottom: 0;
+	margin-top: 10px;
+}
+
+.block {
+	margin-inline: 10px;
+	width: calc(100% - 20px);
+	height: 15px;
+	background: #2E2545;
+	position: absolute;
+	z-index: -1;
+}
+
+footer {
+	color: #000;
+	background-color: #FFF;
+	border-top-left-radius: 35px;
+	border-top-right-radius: 35px;
+	padding: 1px 20px 20px 20px;
+}
+
+footer h2 span {
+	margin-left: 0.5em;
+	font-weight: normal;
+	font-size: 0.75em;
+}
+
+footer abbr {
+	text-decoration: none;
+}
+
+.item {
+	text-decoration: none;
+	border-radius: 8px;
+	margin-bottom: 8px;
+	color: #000;
+	display: flex;
+	cursor: pointer;
+	transition: background 0.25s;
+}
+
+.item:hover {
+	background: #EEE;
+}
+
+.item:active {
+	color: #FFF;
+}
+
+.item .icon {
+	background-color: #0D7813;
+	border-radius: 8px;
+	padding: 8px;
+	fill: #FFF;
+}
+
+.NUM {
+	font-size:650pt;
+	font-family:Arial;
+	font-weight:bold;
+}
+
+.item .content {
+	padding: 8px;
+	max-width: calc(100% - 80px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.item .content p, .item .content strong, .item .content em {
+	display: block;
+	margin: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.item .content em, .item .content p {
+	font-size: 0.85em;
+}
+
+@media screen and (max-width: 420px) {
+	
+}
+
+.green {
+	//border: 3px solid #0D7813;
+	box-shadow: inset 0 0 0 2px #4CB052;
+}
+
+.green:active {
+	background: #4CB052;
+}
+
+.blue {
+	border: 1px solid #2952A3;
+	background: #668CD9;
+}
+
+.red {
+	border: 1px solid #A32929;
+	background: #D96666;
+}
+
+.pink {
+	border: 1px solid #B1365F;
+	background: #E67399;
+}
+
+
+.purple {
+	border: 1px solid #7A367A;
+	background: #B373B3;
+}
+
+
+.darkpurple {
+	border: 1px solid #5229A3;
+	background: #8C66D9;
+}
+
+.steelblue {
+	border: 1px solid #29527A;
+	background: #668CB3;
+}
+
+.lightblue {
+	border: 1px solid #1B887A;
+	background: #59BFB3;
+}
+
+.teal {
+	border: 1px solid #28754E;
+	background: #65AD89;
+}
+
+.lightgreen {
+	border: 1px solid #528800;
+	background: #8CBF40;
+}
+
+.yellowgreen {
+	border: 1px solid #88880E;
+	background: #BFBF4D;
+}
+
+.yellow {
+	border: 1px solid #AB8B00;
+	background: #E0C240;
+}
+
+.orange {
+	border: 1px solid #BE6D00;
+	background: #F2A640;
+}
+
+.redorange {
+	border: 1px solid #B1440E;
+	background: #E6804D;
+}
+
+.lightbrown {
+	border: 1px solid #865A5A;
+	background: #BE9494;
+}
+
+.lightpurple {
+	border: 1px solid #705770;
+	background: #A992A9;
+}
+
+.grey {
+	border: 1px solid #4E5D6C;
+	background: #8997A5;
+}
+
+.bluegrey {
+	border: 1px solid #5A6986;
+	background: #94A2bE;
+}
+
+.lightteal {
+	border: 1px solid #4A716C;
+	background: #85AAA5;
+}
+
+.yellowgrey {
+	border: 1px solid #6E6E41;
+	background: #A7A77D;
+}
+
+.brown {
+	border: 1px solid #8D6F47;
+	background: #C4A883;
+}
+
+.dot {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	border: 0;
+}
