@@ -89,9 +89,9 @@ function menu(num) {
 
 function saveJSON() {
 	var JSONInput = document.getElementById("jsonInput").value;
-	if (JSONInput.length == 0) JSONInput = defaultData;
+	if (JSONInput.length == 0) JSONInput = JSON.stringify(defaultData);
 	
-	localStorage.setItem("classes", JSON.stringify(JSONInput));
+	localStorage.setItem("classes", JSONInput);
 	
 	getJSONData()
 	clear();
