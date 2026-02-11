@@ -10,9 +10,70 @@
 				overflow-y: scroll;
 			}
 			
+			body {
+				background-image: url("pattern8.png");
+				background-color: #0C457AAA;
+				background-blend-mode: multiply;
+				font-family: Arial;
+			}
+			
+			main {
+				background-color: #FFFFFF;
+				min-width: 640px;
+				max-width: 1200px;
+				margin: 40px auto;
+				padding: 5px 40px 40px 40px;
+				box-shadow: 0px 0px 10px 0px #00000069;
+				border-radius: 25px;
+			}
+			
+			.header {
+				display: grid;
+				grid-template-columns: 20% auto 20%;
+				width: 75%;
+				margin-inline: auto;
+				text-align: center;
+			}
+			
+			.header button {
+				width: 50%;
+				margin: auto;
+				border: 2px solid #0C457A;
+				border-radius: 10px;
+				background-color: #FFF;
+				font-size: 17px;
+				cursor: pointer;
+				transition: all 0.15s;
+				transition-property: background-color, color;
+				min-width: 69px;
+				color: #000;
+			}
+			.header button:hover {
+				background-color: #0C457A30;
+			}
+			.header button:active {
+				background-color: #0C457A;
+				color: #FFF;
+			}
+			
+			.epicName {
+				background-color: #0C457A;
+				color: white;
+				padding: 5px;
+				margin-bottom: 6px;
+				border-radius: 10px;
+				border: 2px solid #000;
+			}
+			
 			th {
 				width: calc(100% / 7);
 				text-shadow: -2px 1px black;
+			}
+			
+			tr {
+				display: flex;
+				margin-bottom: 3px;
+				gap: 3px;
 			}
 			
 			td {
@@ -31,6 +92,12 @@
 				min-height: 3em;
 			}
 			
+			td.today {
+				background-color: #0C457A30;
+				color: #FFFFFF;
+				text-shadow: -2px 1px 1px #0C457A;
+			}
+			
 			#ITEM {
 				color: #FFFFFF;
 				font-weight: normal;
@@ -44,95 +111,129 @@
 				text-decoration: none;
 			}
 			
-			td.today {
-				background-color: #0C457A30;
-				color: #FFFFFF;
-				text-shadow: -2px 1px 1px #0C457A;
-			}
-			
 			abbr {
 				text-decoration: none;
 				width: 100%;
 				display: block;
 			}
 			
-			main {
-				background-color: #FFFFFF;
-				min-width: 640px;
-				max-width: 1200px;
-				margin: 40px auto;
-				padding: 5px 40px 40px 40px;
+			.overlay {
+				position: fixed;
+				background-color: #00000000;
+				width: 100vw;
+				height: 100vh;
+				top: -100vh;
+				left: 0;
+				transition: top 0.6s ease-in-out, background-color 0.3s ease-in-out;
+			}
+			
+			.dialog {
+				background-color: #FFF;
+				padding: 20px 40px;
 				box-shadow: 0px 0px 10px 0px #00000069;
 				border-radius: 25px;
+				width: 60%;
+				margin: 50px auto;
 			}
 			
-			body {
-				background-image: url("pattern8.png");
-				background-color: #0C457AAA;
-				background-blend-mode: multiply;
-				font-family: Arial;
-			}
-			
-			.header {
-				display: grid;
-				grid-template-columns: 20% auto 20%;
-				width: 75%;
-				margin-inline: auto;
+			.dialog h2 {
+				margin-top: 0;
+				margin-bottom: 15px;
 				text-align: center;
 			}
 			
-			button {
-				width: 50%;
-				margin: auto;
+			.dialog textarea {
+				resize: none;
+				width: calc(100% - 10px);
+				height: 10em;
+				border-radius: 5px;
+				padding: 3px;
+				border: 2px solid #0C457A;
+				outline-offset: 0;
+				margin-bottom: 15px;
+			}
+			
+			.dialog textarea:focus-visible {
+				border-radius: 5px;
+			}
+			
+			.tripleButton {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 10px;
+			}
+			
+			.tripleButton button {
+				width: 175px;
 				border: 2px solid #0C457A;
 				border-radius: 10px;
 				background-color: #FFF;
 				font-size: 17px;
 				cursor: pointer;
-				transition: 0.15s;
-				min-width: 69px;
+				transition: all 0.15s;
+				transition-property: background-color, color;
 				color: #000;
+				padding-block: 3px;
 			}
 			
-			button:hover {
+			.tripleButton button:hover {
 				background-color: #0C457A30;
 			}
 			
-			button:active {
+			.tripleButton button:active {
 				background-color: #0C457A;
 				color: #FFF;
 			}
 			
-			.epicName {
-				background-color: #0C457A;
-				color: white;
-				padding: 5px;
-				margin-bottom: 6px;
-				border-radius: 10px;
-				border: 2px solid #000;
+			.tripleButton #save {
+				border: 2px solid #2D9B2B;
 			}
 			
-			tr {
-				display: flex;
-				margin-bottom: 3px;
-				gap: 3px;
+			.tripleButton #save:hover {
+				background-color: #2D9B2B30;
 			}
 			
-			@media only screen and (max-width: 750px) {
+			.tripleButton #save:active {
+				background-color: #2D9B2B;
+			}
+			
+			.tripleButton #delete {
+				border: 2px solid #DA1C1C;
+			}
+			
+			.tripleButton #delete:hover {
+				background-color: #DA1C1C30;
+			}
+			
+			.tripleButton #delete:active {
+				background-color: #DA1C1C;
+			}
+			
+			@media only screen and (max-width: 620px) {
 				main, body {
 					margin: 50px 0;
-				}	
+				}
+				
+				.dialog {
+					width: 80%;
+					padding: 20px;
+				}
+				
+				.tripleButton button {
+					width: 100%;
+				}
 			}
 		</style>
 	</head>
 	<body>
-		<script type="text/javascript" src="dates_v1.5.js"></script>
+		<script type="text/javascript" src="dates_v1.6.js"></script>
 		
 		<main>
 			<div class="header">
 				<button onclick="prev()">&#10094;</button>
 				
-				<h1 id="MONTH" style="margin:20px 0;">Month of the day</h1>
+				<h1 onclick="menu(1)" id="MONTH" style="margin:20px 0;cursor:pointer;">Month of the day</h1>
 				
 				<button onclick="next()">&#10095;</button>
 			</div>
@@ -153,5 +254,18 @@
 				<tbody id="TABLE"></tbody>
 			</table>
 		</main>
+		
+		<div class="overlay">
+			<div class="dialog">
+				<h2>JSON Data Input</h2>
+				<textarea id="jsonInput"></textarea>
+				
+				<div class="tripleButton">
+					<button id="save" onclick="saveJSON()">Save</button>
+					<button id="cancel" onclick="menu(0)">Close</button>
+					<button id="delete" onclick="clearJSON()">Delete All</button>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
