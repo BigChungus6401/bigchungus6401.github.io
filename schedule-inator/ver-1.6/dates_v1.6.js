@@ -20,9 +20,7 @@ window.onload = function() {
 	date = new Date();
 	current = date.getMonth();
 	
-	// Local JSON storage
-	classes = JSON.parse(localStorage.getItem("classes")) || {};
-	keys = Object.keys(classes);
+	getJSONData();
 	
 	calender();
 }
@@ -43,7 +41,46 @@ function prev() {
 	}
 }
 
-function clear() {document.getElementById("TABLE").innerHTML = "";}
+function menu(num) {
+	var overlay = document.getElementsByClassName("overlay")[0];
+	
+	if (num == 0) {
+		overlay.style.backgroundColor = "#00000000";
+		overlay.style.top = "-100vh";
+	} else {
+		overlay.style.backgroundColor = "#00000088";
+		overlay.style.top = "0";
+	}
+}
+
+function saveJSON() {
+	var JSONInput = document.getElementById("jsonInput").value;
+	if (JSONInput.length == 0) JSONInput = "{}";
+	
+	localStorage.setItem("classes", JSONInput);
+	
+	getJSONData()
+	clear();
+	calender();
+}
+
+function clearJSON() {
+	localStorage.setItem("classes", "{}");
+	
+	getJSONData()
+	clear();
+	calender();
+}
+
+function getJSONData() {
+	// Local JSON storage
+	classes = JSON.parse(localStorage.getItem("classes")) || {};
+	keys = Object.keys(classes);
+}
+
+function clear() {
+	document.getElementById("TABLE").innerHTML = "";
+}
 
 function addEvents(month, ID, darken) {
 	for (var k=0; k<keys.length; k++) {
