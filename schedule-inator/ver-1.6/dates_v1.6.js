@@ -13,6 +13,40 @@ const months = [
 	["December",  31, 2]
 ];
 
+const defaultData = {
+	"Holidays": {
+		"Name": "Holiday",
+		"Color": "305482",
+		"Year": 2026,
+		"Meetings": [],
+		"Links": [],
+		"Assignments": [
+			"0101NNew Year's Day§All Day",
+			"0119NMLK Day (No-School)§All Day",
+			"0214NValentine's Day§All Day",
+			"0216NPresident's Day§All Day",
+			"0317NSt. Patrick's Day§All Day",
+			"0405NEaster Sunday§All Day",
+			"0406NEaster Monday§All Day",
+			"0415NTax Day§All Day",
+			"0505NCinco de Mayo§All Day",
+			"0510NMother's Day§All Day",
+			"0525NMemorial Day§All Day",
+			"0621NFather's Day§All Day",
+			"0704NIndependence Day§All Day",
+			"0907NLabor Day§All Day",
+			"1012NColumbus Day§All Day",
+			"1031NHalloween§All Day",
+			"1111NVeteran's Day§All Day",
+			"1126NThanksgiving§All Day",
+			"1224NChristmas Eve§All Day",
+			"1225NChristmas Day§All Day",
+			"1231NNew Year's Eve§All Day"
+		],
+		"Exams": []
+	}
+};
+
 var date, current, classes, keys;
 
 window.onload = function() {
@@ -55,9 +89,9 @@ function menu(num) {
 
 function saveJSON() {
 	var JSONInput = document.getElementById("jsonInput").value;
-	if (JSONInput.length == 0) JSONInput = "{}";
+	if (JSONInput.length == 0) JSONInput = defaultData;
 	
-	localStorage.setItem("classes", JSONInput);
+	localStorage.setItem("classes", JSON.stringify(JSONInput));
 	
 	getJSONData()
 	clear();
@@ -65,7 +99,7 @@ function saveJSON() {
 }
 
 function clearJSON() {
-	localStorage.setItem("classes", "{}");
+	localStorage.setItem("classes", JSON.stringify(defaultData));
 	
 	getJSONData()
 	clear();
@@ -74,7 +108,8 @@ function clearJSON() {
 
 function getJSONData() {
 	// Local JSON storage
-	classes = JSON.parse(localStorage.getItem("classes")) || {};
+	classes = JSON.parse(localStorage.getItem("classes")) || defaultData;
+	
 	keys = Object.keys(classes);
 }
 
