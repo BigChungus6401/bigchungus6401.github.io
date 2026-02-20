@@ -1,20 +1,14 @@
 // Token: mnPIIPQHTyhoLYDYyYmcCwGLRqStnPct
 const divviyyituhhp = document.getElementById("divviyyituhhp");
 
-const options = {
-	headers: {
-		crossorigin: "anonymous",
-		token: "mnPIIPQHTyhoLYDYyYmcCwGLRqStnPct"
-	}
-};
 
 window.onload = function() {
-	getData('https://www.ncei.noaa.gov/cdo-web/api/v2/datasets', options);
+	getData('https://whether-vercel-proxy.vercel.app/api/datasets');
 }
 
-async function getData(url, options) {
+async function getData(url) {
 	try {
-		const response = await fetch(url, options);
+		const response = await fetch(url);
 		if (response.ok) {
 			const data = await response.json();
 			divviyyituhhp.textContent = data;
