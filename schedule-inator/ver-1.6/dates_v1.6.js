@@ -139,7 +139,7 @@ function addEvents(month, ID, darken) {
 			if (day !== null) {
 				// Create box for item
 				var thing;
-				if (classes[keys[k]]["Links"].length > 0) {
+				if (classes[keys[k]]["Links"].length > 0 && ass.substring(4,5) !== "N") {
 					thing = document.createElement("a");
 					thing.href = classes[keys[k]]["Links"][Number(ass.substring(4,5))];
 					thing.target = "_blank";
