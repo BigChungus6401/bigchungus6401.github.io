@@ -3,19 +3,25 @@ const divviyyituhhp = document.getElementById("divviyyituhhp");
 
 const options = {
 	headers: {
-		"crossorigin": "anonymous",
-		"token": "mnPIIPQHTyhoLYDYyYmcCwGLRqStnPct"
+		crossorigin: "anonymous",
+		token: "mnPIIPQHTyhoLYDYyYmcCwGLRqStnPct"
 	}
 };
 
-const req = new Request(new URL("https://www.ncei.noaa.gov/cdo-web/api/v2/datasets"), options);
+window.onload = function() {
+	getData('https://www.ncei.noaa.gov/cdo-web/api/v2/datasets', options);
+}
 
-window.fetch(req).then((response) => {
-	if (!response.ok) {
-		throw new Error(`HTTP error! Status: ${response.status}`);
+async function getData(url, options) {
+	try {
+		const response = await fetch(url, options);
+		if (response.ok) {
+			const data = await response.json();
+			divviyyituhhp.textContent = data;
+		} else {
+			throw new Error("Failed to fetch data");
+		}
+	} catch (error) {
+		console.error("Error: ", error);
 	}
-	
-	return response.blob();
-}).then((response) => {
-	divviyyituhhp.textContent = response;
-});
+}
