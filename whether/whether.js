@@ -3,7 +3,7 @@ const divviyyituhhp = document.getElementById("divviyyituhhp");
 
 
 window.onload = function() {
-	getData('https://whether-vercel-proxy.vercel.app/api/datasets');
+	getData('https://whether-vercel-proxy.vercel.app/api/test');
 }
 
 async function getData(url) {
