@@ -20,7 +20,7 @@ const defaultData = {
 		"Year": 2026,
 		"Meetings": [],
 		"Links": [],
-		"Assignments": [
+		"Events": [
 			"0101NNew Year's Day§All Day",
 			"0119NMLK Day (No-School)§All Day",
 			"0214NValentine's Day§All Day",
@@ -42,8 +42,7 @@ const defaultData = {
 			"1224NChristmas Eve§All Day",
 			"1225NChristmas Day§All Day",
 			"1231NNew Year's Eve§All Day"
-		],
-		"Exams": []
+		]
 	}
 };
 
@@ -114,92 +113,75 @@ function getJSONData() {
 }
 
 function clear() {
-	document.getElementById("TABLE").innerHTML = "";
+	document.getElementById("calendarBody").innerHTML = "";
 }
 
-function addEvents(month, ID, darken) {
+function addEvents() {
 	for (var k=0; k<keys.length; k++) {
-		// Assignments Loop
-		for (var a=0; a<classes[keys[k]]["Assignments"].length; a++) {
-			// Extract assignment data
-			const ass = classes[keys[k]]["Assignments"][a];
-			const assM = Number(ass.substring(0,2));
-			const assD = Number(ass.substring(2,4));
-			const i = ass.indexOf("§");
-			let assString;
-			if (i == -1) assString = ass.substring(5) + ", In class";
-			else if (ass.substring(i + 1) === "11:59 PM" || k == 0 || k == 1) assString = ass.substring(5, i);
-			else assString = ass.substring(5, i) + ", Due: " + ass.substring(i + 1);
+		// Events Loop
+		for (var e=0; e<classes[keys[k]]["Events"].length; e++) {
+			// Get some event data
+			const event = classes[keys[k]]["Events"][e];
+			const eventMonth = Number(event.substring(0, 2)) - 1;
 			
-			if (assM != month + 1) continue;
+			// Most common "don't do" occurance (probably) continue;
+			if (eventMonth < current - 1 || eventMonth > current + 1) continue;
 			
-			// Get calender day td
-			const day = document.getElementById(ID + assD);
+			// More event data
+			const eventDay = Number(event.substring(2, 4));
 			
-			if (day !== null) {
-				// Create box for item
-				var thing;
-				if (classes[keys[k]]["Links"].length > 0 && ass.substring(4,5) !== "N") {
-					thing = document.createElement("a");
-					thing.href = classes[keys[k]]["Links"][Number(ass.substring(4,5))];
-					thing.target = "_blank";
-				} else thing = document.createElement("div");
-				thing.id = "ITEM";
-				
-				if (!darken) thing.style.backgroundColor = "#" + classes[keys[k]]["Color"];
-				else {
-					thing.style.backgroundColor = grayen("#" + classes[keys[k]]["Color"], 0.667);
-					thing.style.color = "#DEDEDE";
-				}
-				
-				// Create abbreviation for text. (in case text is too long)
-				var abbr = document.createElement("abbr");
-				abbr.title = assString;
-				abbr.textContent = assString;
-				
-				// Add abbreviation to box
-				thing.append(abbr);
-				
-				// Add box to calender day
-				day.append(thing);
+			// More "don't do" events
+			// Previous month's events
+			if (eventMonth == current - 1) {
+				if (months[current][2] == 0 || current == 0) continue;
+				if (eventDay < months[current - 1][1] - months[current][2] + 1) continue;
 			}
-		}
-		// Exams Loop
-		for (var e=0; e<classes[keys[k]]["Exams"].length; e++) {
-			// Extract exam data
-			const exam = classes[keys[k]]["Exams"][e];
-			const examM = Number(exam.substring(0,2));
-			const examD = Number(exam.substring(2,4));
-			const examN = exam.substring(4);
-			
-			if (examM != month + 1) continue;
-			
-			// Get calender day td
-			const day = document.getElementById(ID + examD);
-			
-			if (day !== null) {
-				// Create box for item
-				var thing = document.createElement("div");
-				thing.id = "ITEM";
-				thing.style.textDecoration = "underline dashed";
-				
-				if (!darken) thing.style.backgroundColor = "#" + classes[keys[k]]["Color"];
-				else {
-					thing.style.backgroundColor = grayen("#" + classes[keys[k]]["Color"], 0.667);
-					thing.style.color = "#DEDEDE";
-				}
-				
-				// Create abbreviation for text. (in case text is too long)
-				var abbr = document.createElement("abbr");
-				abbr.title = examN;
-				abbr.textContent = examN;
-				
-				// Add abbreviation to box
-				thing.append(abbr);
-				
-				// Add box to calender day
-				day.append(thing);
+			// Next month's events
+			if (eventMonth == current + 1) {
+				let subtotal = months[current][1] + months[current][2];
+				if (subtotal % 7 == 0 || current == 11) continue;
+				if (eventDay > Math.ceil(subtotal / 7) * 7 - subtotal) continue;
 			}
+			
+			// Event formatting information
+			const eventType = event.substring(4, 5); // E: exam, N: no link, #: link
+			const exam = eventType === "E";
+			const link = eventType !== "N";
+			
+			// Event display text
+			const nameIndex = event.indexOf("§");
+			let eventName;
+			if (k <= 1 || nameIndex == -1) eventName = event.substring(5);
+			else eventName = `${event.substring(5, nameIndex)}, Due: ${event.substring(nameIndex + 1)}`;
+			
+			// Create box for item
+			let thing;
+			if (link && !exam) {
+				thing = document.createElement("a");
+				thing.href = classes[keys[k]]["Links"][Number(eventType)];
+				thing.target = "_blank";
+			} else {
+				thing = document.createElement("div");
+				if (exam) thing.classList = "exam";
+			}
+			thing.id = "calEvent";
+			thing.textContent = eventName;
+			
+			// Get calender day <td> and gray-out event if needed
+			let day;
+			if (eventMonth == current) {
+				thing.style.backgroundColor = "#" + classes[keys[k]]["Color"];
+				day = document.getElementById("day" + eventDay);
+			} else {
+				thing.style.backgroundColor = grayen("#" + classes[keys[k]]["Color"], 0.667);
+				thing.style.color = "#DEDEDE";
+				if (eventMonth == current - 1) day = document.getElementById("prev" + eventDay);
+				else day = document.getElementById("next" + eventDay);
+			}
+			try{
+			// Add box to calender day
+			day.append(thing);
+			}catch(e){console.log("Attempt: " + event);}
 		}
 	}
 }
@@ -229,12 +211,12 @@ function grayen(hex, amt) {
 
 function calender() {
 	// Setup
-	const t = document.getElementById("TABLE");
+	const t = document.getElementById("calendarBody");
 	var dayNum = 1 - months[current][2];
 	var next = false;
 	
 	// Change Title
-	document.getElementById("MONTH").textContent = months[current][0];
+	document.getElementById("titleMonth").textContent = months[current][0];
 	
 	// Week loop
 	for (var w=0; w<(months[current][1] + months[current][2]) / 7; w++) {
@@ -276,12 +258,5 @@ function calender() {
 		t.append(week);
 	}
 	
-	// Loop to add calender items
-	addEvents(current, "day", false);
-	
-	// Previous Month
-	if (months[current][2] != 0 && current != 0) addEvents(current - 1, "prev", true);
-	
-	// Next Month
-	if ((months[current][1] + months[current][2]) % 7 > 0 && current != 11) addEvents(current + 1, "next", true);
+	addEvents();
 }
