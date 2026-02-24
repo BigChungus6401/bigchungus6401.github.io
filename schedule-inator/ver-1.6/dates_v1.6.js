@@ -178,10 +178,9 @@ function addEvents() {
 				if (eventMonth == current - 1) day = document.getElementById("prev" + eventDay);
 				else day = document.getElementById("next" + eventDay);
 			}
-			try{
+			
 			// Add box to calender day
 			day.append(thing);
-			}catch(e){console.log("Attempt: " + event);}
 		}
 	}
 }
