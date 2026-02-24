@@ -60,7 +60,7 @@ main {
 	margin-bottom: 6px;
 	border-radius: 10px;
 	border: 2px solid #000;
-	/*background-image: radial-gradient(ellipse 80% 150% at 50% 0, #00000000, #00000066 80%);*/
+	background-image: radial-gradient(ellipse 80% 150% at 50% 0, #00000000, #00000066 80%);
 }
 
 th {
@@ -106,7 +106,7 @@ td.today {
 	padding: 3px;
 	text-shadow: -1.5px 0.5px black;
 	text-decoration: none;
-	/*background-image: radial-gradient(ellipse 80% 150% at 50% 0, #00000000, #00000025 80%);*/
+	background-image: radial-gradient(ellipse 80% 150% at 50% 0, #00000000, #00000025 80%);
 }
 
 .exam {
@@ -222,4 +222,5 @@ td.today {
 	.tripleButton button {
 		width: 100%;
 	}
+
 }
