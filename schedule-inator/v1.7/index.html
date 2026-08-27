@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Schedule-inator v1.6</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/x-icon" href="icon.ico"></link>
+		<link href="MOBILE__kah_len_dahr.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="dates_v1.6.js"></script>
+	</head>
+	<body>
+		<main>
+			<div class="header">
+				<button onclick="prev()">&#10094;</button>
+				
+				<h1 onclick="menu(1)" id="titleMonth">Month of the day</h1>
+				
+				<button onclick="next()">&#10095;</button>
+			</div>
+			
+			<div class="calWrap">
+				<div class="calendar">
+					<table>
+						<tbody>
+							<tr class="daysOWeek">
+								<th>Sunday</th>
+								<th>Monday</th>
+								<th>Tuesday</th>
+								<th>Wednesday</th>
+								<th>Thursday</th>
+								<th>Friday</th>
+								<th>Saturday</th>
+							</tr>
+						</tbody>
+						
+						<tbody id="calendarBody"></tbody>
+					</table>
+				</div>
+				
+				<div class="shadow shadow-left"></div>
+				<div class="shadow shadow-right"></div>
+			</div>
+		</main>
+		
+		<div class="overlay">
+			<div class="dialog">
+				<h2>JSON Data Input</h2>
+				<textarea id="jsonInput"></textarea>
+				
+				<div class="tripleButton">
+					<button id="save" onclick="saveJSON()">Save</button>
+					<button id="cancel" onclick="menu(0)">Close</button>
+					<button id="delete" onclick="clearJSON()">Delete All</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
