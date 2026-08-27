@@ -75,6 +75,8 @@ window.onload = function() {
 	
 	c.addEventListener("scroll", function() {
 		cSW = (c.scrollWidth - w.offsetWidth) / this.scrollLeft;
+
+		console.log(cSW);
 		
 		if (c.scrollWidth == w.offsetWidth) {
 			sL.style.opacity = 0;
