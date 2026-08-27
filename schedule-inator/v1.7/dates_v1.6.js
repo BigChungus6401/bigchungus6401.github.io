@@ -75,15 +75,15 @@ window.onload = function() {
 	
 	c.addEventListener("scroll", function() {
 		cSW = (c.scrollWidth - w.offsetWidth) / this.scrollLeft;
-
+		
 		console.log(cSW);
 		
 		if (c.scrollWidth == w.offsetWidth) {
 			sL.style.opacity = 0;
 			sR.style.opacity = 0;
 		} else {
-			if (cSW == Infinity) sL.style.opacity = 0;
-			else if (cSW == 1) sR.style.opacity = 0;
+			if (cSW == Infinity || cSW < 0) sL.style.opacity = 0;
+			else if (cSW == 1 || (cSW < 1 && cSW > 0)) sR.style.opacity = 0;
 			else {
 				sL.style.opacity = 1;
 				sR.style.opacity = 1;
