@@ -21,27 +21,27 @@ const defaultData = {
 		"Meetings": [],
 		"Links": [],
 		"Events": [
-			"0101NNew Year's Day§All Day",
-			"0119NMLK Day (No-School)§All Day",
-			"0214NValentine's Day§All Day",
-			"0216NPresident's Day§All Day",
-			"0317NSt. Patrick's Day§All Day",
-			"0405NEaster Sunday§All Day",
-			"0406NEaster Monday§All Day",
-			"0415NTax Day§All Day",
-			"0505NCinco de Mayo§All Day",
-			"0510NMother's Day§All Day",
-			"0525NMemorial Day§All Day",
-			"0621NFather's Day§All Day",
-			"0704NIndependence Day§All Day",
-			"0907NLabor Day§All Day",
-			"1012NColumbus Day§All Day",
-			"1031NHalloween§All Day",
-			"1111NVeteran's Day§All Day",
-			"1126NThanksgiving§All Day",
-			"1224NChristmas Eve§All Day",
-			"1225NChristmas Day§All Day",
-			"1231NNew Year's Eve§All Day"
+			"0101NNew Year's DayÆAll Day",
+			"0119NMLK Day (No-School)ÆAll Day",
+			"0214NValentine's DayÆAll Day",
+			"0216NPresident's DayÆAll Day",
+			"0317NSt. Patrick's DayÆAll Day",
+			"0405NEaster SundayÆAll Day",
+			"0406NEaster MondayÆAll Day",
+			"0415NTax DayÆAll Day",
+			"0505NCinco de MayoÆAll Day",
+			"0510NMother's DayÆAll Day",
+			"0525NMemorial DayÆAll Day",
+			"0621NFather's DayÆAll Day",
+			"0704NIndependence DayÆAll Day",
+			"0907NLabor DayÆAll Day",
+			"1012NColumbus DayÆAll Day",
+			"1031NHalloweenÆAll Day",
+			"1111NVeteran's DayÆAll Day",
+			"1126NThanksgivingÆAll Day",
+			"1224NChristmas EveÆAll Day",
+			"1225NChristmas DayÆAll Day",
+			"1231NNew Year's EveÆAll Day"
 		]
 	}
 };
@@ -75,8 +75,6 @@ window.onload = function() {
 	
 	c.addEventListener("scroll", function() {
 		cSW = (c.scrollWidth - w.offsetWidth) / this.scrollLeft;
-		
-		console.log(cSW);
 		
 		if (c.scrollWidth == w.offsetWidth) {
 			sL.style.opacity = 0;
@@ -183,7 +181,7 @@ function addEvents() {
 			const link = eventType !== "N";
 			
 			// Event display text
-			const nameIndex = event.indexOf("§");
+			const nameIndex = event.indexOf("Æ");
 			let eventName;
 			if (k <= 1 || nameIndex == -1) eventName = event.substring(5);
 			else  if (exam) eventName = `${event.substring(5, nameIndex)}, At: ${event.substring(nameIndex + 1)}`;
